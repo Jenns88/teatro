@@ -41,7 +41,8 @@
             <link href="https://fonts.googleapis.com/css?family=Oswald|Poppins&display=swap" rel="stylesheet">
 			<!-- Tus archivos CSS -->
 			<link href="css/mobile.css" rel="stylesheet" media="all and (max-width: 600px)">
-	        <link href="css/desktop.css" rel="stylesheet" media="all and (min-width: 600px)">
+			<link href="css/desktop.css" rel="stylesheet" media="all and (min-width: 600px)">
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		</head>	
 	<!--Contenido de la web-->
 	<body>
@@ -168,7 +169,9 @@
                 </div>
                 </form>
             </div>
-        </section>
+		</section>
+		
+
 
         <!--END FORMULARIO-->
         <hr class="linea">
@@ -177,5 +180,39 @@
 			Copyright � 2020. All rights reserved.
 			</div>
 		</footer>
+
+		
+		<script defer>
+			const URL_POST = 'https://api.airtable.com/v0/appaod51ARMTmBvkz/Clientes'
+
+			axios.post(URL_POST, {
+				records: [
+					{
+					fields: {
+						Name: 'Pavlo',
+						Apellido: 'White',
+						Precio: '11'
+					}
+				}
+				]
+			},
+			{
+				headers: {
+					'Authorzation': 'Bearer keyY3rOI3oiWEV6uf',
+					'Content-Type': 'application/json' 
+				}
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
+		</script>
+
+
+
+
 	</body>	
 </html>
