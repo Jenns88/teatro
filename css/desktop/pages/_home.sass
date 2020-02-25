@@ -1,0 +1,40 @@
+.separador__calendario
+    width: 80%
+    border: 1px solid $color2
+
+.calendario
+    display: flex
+    justify-content: center
+    
+    &__seleccion
+        font-family: $fuente-texto
+// formulario
+.form
+    background-image: url(../../img/entradas.jpg)
+    background-size: cover
+    &__title
+        font-family: $fuente-titulo
+        font-size: 1.5rem
+        color: $color5
+    &__name
+        @include texto()
+    &__apellido
+        @include texto()
+    &__asientos
+        @include texto()
+    &__precio
+        @include texto()
+        padding-left: .5rem
+    &__total
+        @include texto()
+.flex
+    display: flex
+    justify-content: space-between
+.total
+    display: flex
+    justify-content: flex-end
+.input
+    width: calc(100% - 4px)
+    &--small
+        width: 3rem
+

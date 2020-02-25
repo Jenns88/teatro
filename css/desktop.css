@@ -1,0 +1,145 @@
+/* Variables */
+.container {
+  max-width: 800px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #efc69bff;
+  font-family: "Oswald";
+  alaing-items: center;
+}
+
+.header {
+  background-color: #9e2b25ff;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.header__logo {
+  display: flex;
+}
+
+.header__img {
+  width: 150px;
+  height: 110px;
+}
+
+.butacas p {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  height: 3rem;
+  width: 100%;
+}
+.butacas__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 70%;
+  margin: 2rem auto;
+}
+.butacas__negro .negro {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.butacas__red .rojo {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.butacas__verde .verde {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.butacas__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 60%;
+  margin: 0 auto;
+}
+.butacas__usuarios {
+  margin: 3rem;
+}
+
+.separador__calendario {
+  width: 80%;
+  border: 1px solid #9e2b25ff;
+}
+
+.calendario {
+  display: flex;
+  justify-content: center;
+}
+.calendario__seleccion {
+  font-family: "Poppins";
+}
+
+.form {
+  background-image: url(../../img/entradas.jpg);
+  background-size: cover;
+}
+.form__title {
+  font-family: "Oswald";
+  font-size: 1.5rem;
+  color: #df9b6dff;
+}
+.form__name {
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  color: #fff;
+}
+.form__apellido {
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  color: #fff;
+}
+.form__asientos {
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  color: #fff;
+}
+.form__precio {
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  color: #fff;
+  padding-left: 0.5rem;
+}
+.form__total {
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input {
+  width: calc(100% - 4px);
+}
+.input--small {
+  width: 3rem;
+}
+
+.footer {
+  width: 100%;
+  height: 3rem;
+  display: block;
+  margin: 2rem auto;
+}
+.footer__text {
+  font-size: 2rem;
+  text-align: center;
+}
