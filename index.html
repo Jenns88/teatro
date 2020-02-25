@@ -41,7 +41,10 @@
             <link href="https://fonts.googleapis.com/css?family=Oswald|Poppins&display=swap" rel="stylesheet">
 			<!-- Tus archivos CSS -->
 			<link href="css/mobile.css" rel="stylesheet" media="all and (max-width: 600px)">
-	        <link href="css/desktop.css" rel="stylesheet" media="all and (min-width: 600px)">
+			<link href="css/desktop.css" rel="stylesheet" media="all and (min-width: 600px)">
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		</head>	
 	<!--Contenido de la web-->
 	<body>
@@ -89,32 +92,10 @@
 				</div>
 			</div>
 			<hr class="linea">
-            <div class="butacas__grid">
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
-				<div class="butacas__usuarios"><img src="img/user.svg" alt="imagen__usuario" class="butacas__img"></div>
+            <div id="app"class="butacas__grid">
+				<div class="butacas__usuarios" v-for="butaca in butacas">
+					<img src="img/user.svg" alt="imagen__usuario" class="butacas__img">
+				</div>
 			</div>
 		</section>
 
@@ -177,5 +158,34 @@
 			Copyright � 2020. All rights reserved.
 			</div>
 		</footer>
+		<!-- Javascript -->
+		<script>
+			const API_BUTACAS = 'https://api.airtable.com/v0/appaod51ARMTmBvkz/Butacas';
+        let app = new Vue({
+            el: '#app',
+            data: {
+               butacas: []
+            },
+            mounted: function(){
+                // Get alumnos
+                axios.get(API_BUTACAS, {
+                    headers: {
+                        'Authorization': 'Bearer key4r0ksoBwWd62zD'
+                    }
+                })
+                .then(function (response) {
+                    // handle success
+                    app.butacas = response.data.records;
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
+            }
+        })
+		</script>
 	</body>	
 </html>
