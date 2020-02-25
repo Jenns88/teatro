@@ -90,10 +90,12 @@
 					<img src="img/userverde.svg" alt="" class="verde">	
 				</div>
 			</div>
+			<!-- BUTACAS -->
 			<hr class="linea">
             <div id="app"class="butacas__grid">
 				<div class="butacas__usuarios" v-for="butaca in butacas">
-					<img src="img/user.svg" alt="imagen__usuario" class="butacas__img">
+					<img v-if="butaca.fields.Disponibilidad != undefined" src="img/userverde.svg" alt="imagen__usuario" class="butacas__img">
+					<img v-else src="img/userrojo.svg" alt="imagen__usuario" class="butacas__img">
 				</div>
 			</div>
 		</section>
@@ -168,7 +170,7 @@
                butacas: []
             },
             mounted: function(){
-                // Get alumnos
+                // Get butacas
                 axios.get(API_BUTACAS, {
                     headers: {
                         'Authorization': 'Bearer key4r0ksoBwWd62zD'
